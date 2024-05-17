@@ -1,0 +1,6 @@
+name: SkUtils
+version: '${project.version}'
+main: me.mortaldev.skutils.SkUtils
+api-version: '1.19'
+authors: [MortalityDos]
+description: Adding utility expressions to skript.
