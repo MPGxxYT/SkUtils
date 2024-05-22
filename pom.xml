@@ -6,14 +6,14 @@
 
   <groupId>me.mortaldev</groupId>
   <artifactId>SkUtils</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>SkUtils</name>
 
     <description>Adding utility expressions to skript.</description>
     <properties>
-    <java.version>1.8</java.version>
+    <java.version>17</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -59,6 +59,15 @@
           <id>sonatype</id>
           <url>https://oss.sonatype.org/content/groups/public/</url>
       </repository>
+      <repository>
+          <id>skript-releases</id>
+          <name>Skript Repository</name>
+          <url>https://repo.skriptlang.org/releases</url>
+      </repository>
+      <repository>
+          <id>destroystokyo-repo</id>
+          <url>https://repo.destroystokyo.com/content/repositories/snapshots/</url>
+      </repository>
   </repositories>
 
   <dependencies>
@@ -66,6 +75,12 @@
           <groupId>io.papermc.paper</groupId>
           <artifactId>paper-api</artifactId>
           <version>1.19.4-R0.1-SNAPSHOT</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.github.SkriptLang</groupId>
+          <artifactId>Skript</artifactId>
+          <version>2.8.5</version>
           <scope>provided</scope>
       </dependency>
   </dependencies>

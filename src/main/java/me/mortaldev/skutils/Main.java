@@ -1,29 +1,30 @@
 package me.mortaldev.skutils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
-    static Main plugin;
-    static String label = "WAaH";
+    static Main instance;
+    static String label = "SkUtils";
 
     @Override
     public void onEnable() {
 
-        // DEPENDENCIES
-
-//        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") == null){
-//            getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
-//            Bukkit.getPluginManager().disablePlugin(this);
-//            return;
-//        }
-
-        plugin = this;
+        instance = this;
 
         // DATA FOLDER
 
         if (!getDataFolder().exists()){
             getDataFolder().mkdir();
+        }
+
+//         DEPENDENCIES
+
+        if (Bukkit.getPluginManager().getPlugin("Skript") == null){
+            getLogger().warning("Could not find Skript! This plugin is required.");
+            Bukkit.getPluginManager().disablePlugin(this);
+            return;
         }
 
         // CONFIGS
@@ -42,6 +43,10 @@ public final class Main extends JavaPlugin {
 //        new WildCommand();
 //        new SpawnCommand();
 
+        // SKRIPT REGISTER
+
+        Register.expressions();
+
         getLogger().info(label + " Enabled");
 
     }
@@ -51,8 +56,8 @@ public final class Main extends JavaPlugin {
         getLogger().info(label + " Disabled");
     }
 
-    public static Main getPlugin() {
-        return plugin;
+    public static Main getInstance() {
+        return instance;
     }
 
     public static String getLabel() {
